@@ -13,7 +13,7 @@ const ease = [0.4, 0, 0.2, 1] as const;
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pt-36 md:pt-44 pb-section md:pb-section-lg">
+    <section id="top" className="relative overflow-hidden pt-28 md:pt-44 pb-14 md:pb-section md:pb-section-lg">
       <DotPattern
         className={cn(
           "[mask-image:radial-gradient(ellipse_at_top,white,transparent_70%)]",

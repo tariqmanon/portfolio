@@ -72,7 +72,12 @@ export function Contact() {
             </li>
             <li className="flex items-center gap-3 text-text/90">
               <Phone className="h-4 w-4 text-accent" />
-              <span>{site.phone}</span>
+              <Link
+                href={`tel:${site.phone.replace(/\s+/g, "")}`}
+                className="transition-colors duration-hover ease-brand hover:text-accent"
+              >
+                {site.phone}
+              </Link>
             </li>
             <li className="flex items-center gap-3 text-text/90">
               <MapPin className="h-4 w-4 text-accent" />

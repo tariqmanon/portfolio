@@ -28,7 +28,7 @@ export const hero = {
   eyebrow: "Available for Work",
   title: "Elegant, high-performing websites that captivate and convert.",
   subtitle:
-    "I'm Tariq — a Software Engineer with 6+ years building e-commerce and SaaS products across Shopify, Next.js, Framer and Magento for clients in the UK, US and Europe.",
+    "I'm Tariq — a Software Engineer with 6+ years specialising in Shopify and WooCommerce stores, plus Next.js, Framer and Magento builds, for clients across the UK, US and Europe.",
   meta: [
     { label: "Based in", value: "Dhaka, Bangladesh" },
     { label: "Currently at", value: "Tuliptech Ltd, Leicester" },
@@ -45,6 +45,7 @@ export type Project = {
   metrics?: string[];
   stack: string[];
   href?: string;
+  caseStudy?: string;
   image?: string;
   featured?: boolean;
 };
@@ -72,6 +73,7 @@ export const projects: Project[] = [
       "Built from scratch with a fully custom checkout designed for scale and easy backend management. Integrated payments, shipping and CRM workflows.",
     stack: ["WooCommerce", "WordPress", "PHP", "Custom Checkout"],
     href: "https://cateredbyclink.org",
+    caseStudy: "https://dev.tulip-tech.com/case-studies/catered-by-clink",
     image: "/images/projects/clink.png",
     featured: true,
   },
@@ -130,6 +132,16 @@ export const projects: Project[] = [
     summary: "Shopify theme work and ongoing customisation for a US-based apparel brand.",
     stack: ["Shopify", "Liquid"],
     href: "https://www.kerusso.com",
+    caseStudy: "https://dev.tulip-tech.com/case-studies/kerusso",
+  },
+  {
+    title: "Charnwood Supplies",
+    category: "Shopify E-commerce",
+    year: "2023",
+    summary:
+      "Brought Charnwood Supplies online with a Shopify storefront — set up product catalogue, online purchasing and admin-panel sales data access for the team.",
+    stack: ["Shopify", "Liquid"],
+    caseStudy: "https://dev.tulip-tech.com/case-studies/charnwood-supplies",
   },
 ];
 

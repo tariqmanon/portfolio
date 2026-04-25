@@ -5,7 +5,7 @@ import { nav, site } from "@/lib/data";
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="hairline-t mt-24">
+    <footer className="hairline-t mt-12 md:mt-24">
       <div className="container-x flex flex-col gap-10 py-14">
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           <div className="flex flex-col gap-4 max-w-md">
@@ -56,8 +56,18 @@ export function Footer() {
             </div>
             <div className="flex flex-col gap-3 col-span-2 md:col-span-1">
               <span className="label-eyebrow">Contact</span>
-              <span className="text-sm text-subtle">{site.email}</span>
-              <span className="text-sm text-subtle">{site.phone}</span>
+              <Link
+                href={`mailto:${site.email}`}
+                className="text-sm text-subtle transition-colors duration-hover ease-brand hover:text-accent"
+              >
+                {site.email}
+              </Link>
+              <Link
+                href={`tel:${site.phone.replace(/\s+/g, "")}`}
+                className="text-sm text-subtle transition-colors duration-hover ease-brand hover:text-accent"
+              >
+                {site.phone}
+              </Link>
               <span className="text-sm text-subtle">{site.location}</span>
             </div>
           </div>

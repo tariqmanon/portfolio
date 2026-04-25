@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:tariqmanon.framer.ai)",
+      "Read(//private/tmp/**)",
+      "Bash(rm -rf nextjs-scaffold)",
+      "Bash(npx create-next-app@14 nextjs-scaffold --typescript --tailwind --app --src-dir=false --import-alias=\"@/*\" --eslint --no-turbopack --use-npm --yes)"
+    ]
+  }
+}

@@ -67,9 +67,6 @@ export function Footer() {
           <span className="font-mono text-[11px] uppercase tracking-widest text-subtle">
             © {year} {site.name}. All rights reserved.
           </span>
-          <span className="font-mono text-[11px] uppercase tracking-widest text-subtle">
-            Built with Next.js · Deployed on Vercel
-          </span>
         </div>
       </div>
     </footer>

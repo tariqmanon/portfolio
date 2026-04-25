@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
+import { BackToTop } from "@/components/back-to-top";
 import "./globals.css";
 
 const inter = Inter({
@@ -66,7 +67,8 @@ export default function RootLayout({
       <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           {children}
-          <Toaster position="bottom-right" />
+          <BackToTop />
+          <Toaster position="bottom-left" />
         </ThemeProvider>
       </body>
     </html>

@@ -12,7 +12,7 @@ export const site = {
   },
   cta: {
     label: "Book a Call",
-    href: "mailto:tmanon007@gmail.com?subject=Project%20Enquiry",
+    href: "https://calendly.com/webpexbd/web-design-workshop?month=2026-04",
   },
 } as const;
 
@@ -60,7 +60,7 @@ export const projects: Project[] = [
     metrics: ["20% increase in conversion rate", "Faster LCP, fewer render-blocking resources"],
     stack: ["Shopify", "Liquid", "Shopify Flow", "Klaviyo"],
     href: "https://statesidedistribution.com",
-    image: "/images/projects/stateside.svg",
+    image: "/images/projects/stateside.png",
     featured: true,
   },
   {
@@ -72,7 +72,7 @@ export const projects: Project[] = [
       "Built from scratch with a fully custom checkout designed for scale and easy backend management. Integrated payments, shipping and CRM workflows.",
     stack: ["WooCommerce", "WordPress", "PHP", "Custom Checkout"],
     href: "https://cateredbyclink.org",
-    image: "/images/projects/clink.svg",
+    image: "/images/projects/clink.png",
     featured: true,
   },
   {
@@ -83,7 +83,8 @@ export const projects: Project[] = [
       "Set up CI/CD via GitHub Actions and Vercel for the VelaOps Next.js platform — cutting deploy time by ~50% and stabilising release cadence.",
     metrics: ["Deploy time cut by ~50%"],
     stack: ["Next.js", "Vercel", "GitHub Actions"],
-    image: "/images/projects/velaops.svg",
+    href: "https://velaops.ai",
+    image: "/images/projects/velaops.png",
     featured: true,
   },
   {
@@ -93,7 +94,8 @@ export const projects: Project[] = [
     summary:
       "Leading the Magento 2 migration from scratch — store architecture, theming, and integration with the existing operations stack.",
     stack: ["Magento 2", "Adobe Commerce", "PHP"],
-    image: "/images/projects/gafbros.svg",
+    href: "https://www.gafbros.co.uk",
+    image: "/images/projects/gafbros.png",
     featured: true,
   },
   {
@@ -103,7 +105,7 @@ export const projects: Project[] = [
     summary:
       "Frontend development on a JW Player–powered video product, delivering responsive UI and integrating with media APIs.",
     stack: ["React", "Vite", "TypeScript"],
-    image: "/images/projects/bluefrog.svg",
+    href: "https://bluefrogplus.com",
   },
   {
     title: "CareApps",
@@ -111,7 +113,7 @@ export const projects: Project[] = [
     year: "2023",
     summary: "Marketing site built on Framer CMS with custom interactions and content modelling.",
     stack: ["Framer", "Framer CMS"],
-    image: "/images/projects/careapps.svg",
+    href: "https://careapps.co.uk",
   },
   {
     title: "Empathika",
@@ -119,7 +121,7 @@ export const projects: Project[] = [
     year: "2023",
     summary: "Brand site delivered on Framer CMS with content-managed sections and case studies.",
     stack: ["Framer", "Framer CMS"],
-    image: "/images/projects/empathika.svg",
+    href: "https://empathika.com",
   },
   {
     title: "Kerusso",
@@ -127,8 +129,7 @@ export const projects: Project[] = [
     year: "2022",
     summary: "Shopify theme work and ongoing customisation for a US-based apparel brand.",
     stack: ["Shopify", "Liquid"],
-    href: "https://kerusso.com",
-    image: "/images/projects/kerusso.svg",
+    href: "https://www.kerusso.com",
   },
 ];
 

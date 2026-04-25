@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/section-heading";
-import { about } from "@/lib/data";
+import { about, site } from "@/lib/data";
 
 const ease = [0.4, 0, 0.2, 1] as const;
 
@@ -12,6 +13,42 @@ export function About() {
       <div className="container-x grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-5">
           <SectionHeading eyebrow="About" title="A bit about me." />
+
+          <motion.figure
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease }}
+            className="mt-10 max-w-sm"
+          >
+            <div
+              className="relative aspect-[3/4] overflow-hidden rounded bg-panel"
+              style={{ borderWidth: "0.5px", borderStyle: "solid", borderColor: "rgb(var(--line))" }}
+            >
+              <Image
+                src="/images/manon.jpeg"
+                alt={`Portrait of ${site.name}`}
+                fill
+                sizes="(min-width: 1024px) 22rem, (min-width: 640px) 50vw, 100vw"
+                className="object-cover object-top"
+                priority={false}
+              />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(180deg, transparent 60%, rgb(var(--bg) / 0.55) 100%)",
+                }}
+              />
+            </div>
+            <figcaption className="mt-3 flex items-baseline justify-between gap-3">
+              <span className="text-sm text-text">{site.name}</span>
+              <span className="font-mono text-[10px] uppercase tracking-widest text-subtle">
+                {site.location}
+              </span>
+            </figcaption>
+          </motion.figure>
         </div>
 
         <div className="lg:col-span-7">

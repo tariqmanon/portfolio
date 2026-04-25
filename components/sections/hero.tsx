@@ -73,7 +73,7 @@ export function Hero() {
           className="mt-10 flex flex-wrap items-center gap-3"
         >
           <Button asChild size="lg">
-            <Link href="#contact">
+            <Link href={site.cta.href} target="_blank" rel="noopener noreferrer">
               {site.cta.label}
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>

@@ -45,17 +45,28 @@ export const metadata: Metadata = {
     title: "Tariq Manon — Senior Web Developer & Software Engineer",
     description:
       "Designing elegant, high-performing websites that captivate and convert.",
+    images: [
+      {
+        url: "/images/brand/logo-dark@2x.png",
+        width: 640,
+        height: 160,
+        alt: "Tariq Manon",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Tariq Manon — Senior Web Developer & Software Engineer",
     description:
       "Designing elegant, high-performing websites that captivate and convert.",
+    images: ["/images/brand/logo-dark@2x.png"],
   },
   icons: {
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-32.png", type: "image/png", sizes: "32x32" },
     ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
 };
 

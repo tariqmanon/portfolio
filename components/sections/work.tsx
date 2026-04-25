@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
@@ -44,24 +45,37 @@ export function Work() {
                     borderBottom: "0.5px solid rgb(var(--line))",
                   }}
                 >
-                  <div
-                    aria-hidden
-                    className="absolute inset-0 opacity-60"
-                    style={{
-                      background:
-                        "radial-gradient(60% 60% at 30% 30%, rgb(var(--accent) / 0.12), transparent 70%)",
-                    }}
-                  />
-                  <div className="absolute inset-0 grid place-items-center">
-                    <span className="font-mono text-3xl tracking-widest text-accent/80">
-                      {p.title.split(" ").map((w) => w[0]).join("").slice(0, 3)}
-                    </span>
-                  </div>
+                  {p.image ? (
+                    <Image
+                      src={p.image}
+                      alt={`${p.title} — ${p.category}`}
+                      fill
+                      sizes="(min-width: 768px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-page ease-brand group-hover:scale-[1.02]"
+                      priority={i < 2}
+                    />
+                  ) : (
+                    <>
+                      <div
+                        aria-hidden
+                        className="absolute inset-0 opacity-60"
+                        style={{
+                          background:
+                            "radial-gradient(60% 60% at 30% 30%, rgb(var(--accent) / 0.12), transparent 70%)",
+                        }}
+                      />
+                      <div className="absolute inset-0 grid place-items-center">
+                        <span className="font-mono text-3xl tracking-widest text-accent/80">
+                          {p.title.split(" ").map((w) => w[0]).join("").slice(0, 3)}
+                        </span>
+                      </div>
+                    </>
+                  )}
                   <div className="absolute left-4 top-4">
-                    <Badge>{p.category}</Badge>
+                    <Badge className="bg-bg/70 backdrop-blur-sm">{p.category}</Badge>
                   </div>
                   <div className="absolute right-4 top-4">
-                    <span className="font-mono text-[10px] uppercase tracking-widest text-subtle">
+                    <span className="rounded-sm bg-bg/70 px-2 py-1 font-mono text-[10px] uppercase tracking-widest text-subtle backdrop-blur-sm">
                       {p.year}
                     </span>
                   </div>

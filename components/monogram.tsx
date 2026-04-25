@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -7,17 +8,28 @@ export function Monogram({ className }: { className?: string }) {
       href="#top"
       aria-label="Tariq Manon — home"
       className={cn(
-        "group inline-flex items-center gap-2 font-mono text-sm uppercase tracking-wider text-text transition-colors duration-hover ease-brand hover:text-accent",
+        "group inline-flex items-center transition-opacity duration-hover ease-brand hover:opacity-80",
         className
       )}
     >
-      <span
-        className="grid h-8 w-8 place-items-center rounded-full text-[11px] font-medium tracking-wider text-accent"
-        style={{ border: "0.5px solid rgb(var(--line))" }}
-      >
-        TM
-      </span>
-      <span className="hidden sm:inline text-text/90">Tariq Manon</span>
+      <Image
+        src="/images/brand/logo-light@2x.png"
+        alt="Tariq Manon"
+        width={640}
+        height={160}
+        priority
+        className="block h-8 w-auto dark:hidden"
+        sizes="160px"
+      />
+      <Image
+        src="/images/brand/logo-dark@2x.png"
+        alt="Tariq Manon"
+        width={640}
+        height={160}
+        priority
+        className="hidden h-8 w-auto dark:block"
+        sizes="160px"
+      />
     </Link>
   );
 }

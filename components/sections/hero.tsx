@@ -2,20 +2,30 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowDownRight } from "lucide-react";
+import { ArrowRight, ArrowDownRight, Sparkles } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { AnimatedShinyText } from "@/components/magicui/animated-shiny-text";
+import { DotPattern } from "@/components/magicui/dot-pattern";
+import { cn } from "@/lib/utils";
 import { hero, site } from "@/lib/data";
 
 const ease = [0.4, 0, 0.2, 1] as const;
 
 export function Hero() {
   return (
-    <section id="top" className="relative pt-36 md:pt-44 pb-section md:pb-section-lg">
+    <section id="top" className="relative overflow-hidden pt-36 md:pt-44 pb-section md:pb-section-lg">
+      <DotPattern
+        className={cn(
+          "[mask-image:radial-gradient(ellipse_at_top,white,transparent_70%)]",
+          "fill-accent/15"
+        )}
+      />
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-[520px]"
         style={{
           background:
-            "radial-gradient(60% 60% at 20% 0%, rgb(var(--accent) / 0.08), transparent 70%), radial-gradient(50% 50% at 80% 10%, rgb(var(--accent) / 0.05), transparent 70%)",
+            "radial-gradient(60% 60% at 20% 0%, rgb(var(--accent) / 0.10), transparent 70%), radial-gradient(50% 50% at 80% 10%, rgb(var(--accent) / 0.05), transparent 70%)",
         }}
       />
 
@@ -24,13 +34,18 @@ export function Hero() {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease }}
-          className="flex items-center gap-3"
         >
-          <span className="relative inline-flex h-2 w-2 items-center justify-center">
-            <span className="absolute inset-0 animate-ping rounded-full bg-accent/60" />
-            <span className="relative h-2 w-2 rounded-full bg-accent" />
-          </span>
-          <span className="label-eyebrow">{hero.eyebrow}</span>
+          <Link
+            href="#contact"
+            className="group inline-flex items-center gap-2 rounded-full bg-panel/60 px-3.5 py-1.5 backdrop-blur-sm transition-colors duration-hover ease-brand hover:bg-panel"
+            style={{ borderWidth: "0.5px", borderStyle: "solid", borderColor: "rgb(var(--line))" }}
+          >
+            <Sparkles className="h-3 w-3 text-accent" />
+            <AnimatedShinyText className="font-mono text-[11px] uppercase tracking-widest">
+              {hero.eyebrow}
+            </AnimatedShinyText>
+            <ArrowRight className="h-3 w-3 text-subtle transition-transform duration-hover ease-brand group-hover:translate-x-0.5" />
+          </Link>
         </motion.div>
 
         <motion.h1
@@ -57,14 +72,18 @@ export function Hero() {
           transition={{ duration: 0.7, ease, delay: 0.25 }}
           className="mt-10 flex flex-wrap items-center gap-3"
         >
-          <Link href="#contact" className="btn-primary">
-            {site.cta.label}
-            <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
-          <Link href="#work" className="btn-ghost">
-            See Selected Work
-            <ArrowDownRight className="h-3.5 w-3.5" />
-          </Link>
+          <Button asChild size="lg">
+            <Link href="#contact">
+              {site.cta.label}
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </Button>
+          <Button asChild variant="outline" size="lg">
+            <Link href="#work">
+              See Selected Work
+              <ArrowDownRight className="h-3.5 w-3.5" />
+            </Link>
+          </Button>
         </motion.div>
 
         <motion.dl

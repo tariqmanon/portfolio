@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { Monogram } from "./monogram";
 import { ThemeToggle } from "./theme-toggle";
+import { Button } from "@/components/ui/button";
 import { nav } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
@@ -46,23 +47,21 @@ export function Nav() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Link
-            href="#contact"
-            className="hidden btn-primary md:inline-flex"
-          >
-            Book a Call
-          </Link>
+          <Button asChild className="hidden md:inline-flex">
+            <Link href="#contact">Book a Call</Link>
+          </Button>
           <ThemeToggle />
-          <button
+          <Button
             type="button"
-            className="md:hidden inline-flex h-9 w-9 items-center justify-center rounded-full text-subtle transition-colors duration-hover ease-brand hover:text-accent"
-            style={{ border: "0.5px solid rgb(var(--line))" }}
+            variant="outline"
+            size="icon"
+            className="md:hidden"
             aria-label="Toggle menu"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
           >
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
-          </button>
+          </Button>
         </div>
       </div>
 
@@ -82,9 +81,11 @@ export function Nav() {
                 {item.label}
               </Link>
             ))}
-            <Link href="#contact" onClick={() => setOpen(false)} className="btn-primary mt-2 w-fit">
-              Book a Call
-            </Link>
+            <Button asChild className="mt-2 w-fit">
+              <Link href="#contact" onClick={() => setOpen(false)}>
+                Book a Call
+              </Link>
+            </Button>
           </div>
         </div>
       )}

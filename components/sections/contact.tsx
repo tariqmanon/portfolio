@@ -4,21 +4,23 @@ import * as React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
+import { toast } from "sonner";
 import { SectionHeading } from "@/components/section-heading";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
 import { site } from "@/lib/data";
 
 const ease = [0.4, 0, 0.2, 1] as const;
 
-type Status = "idle" | "submitting" | "success" | "error";
-
 export function Contact() {
-  const [status, setStatus] = React.useState<Status>("idle");
-  const [errorMsg, setErrorMsg] = React.useState<string | null>(null);
+  const [submitting, setSubmitting] = React.useState(false);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus("submitting");
-    setErrorMsg(null);
+    setSubmitting(true);
 
     const form = e.currentTarget;
     const data = new FormData(form);
@@ -27,7 +29,6 @@ export function Contact() {
       email: String(data.get("email") || "").trim(),
       company: String(data.get("company") || "").trim(),
       message: String(data.get("message") || "").trim(),
-      // honeypot
       website: String(data.get("website") || ""),
     };
 
@@ -39,11 +40,16 @@ export function Contact() {
       });
       const json = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(json?.error || "Something went wrong. Please try again.");
-      setStatus("success");
+      toast.success("Message sent.", {
+        description: "I&apos;ll get back to you within a working day.",
+      });
       form.reset();
     } catch (err) {
-      setStatus("error");
-      setErrorMsg(err instanceof Error ? err.message : "Something went wrong.");
+      toast.error("Couldn&apos;t send.", {
+        description: err instanceof Error ? err.message : "Please email me directly.",
+      });
+    } finally {
+      setSubmitting(false);
     }
   }
 
@@ -53,7 +59,7 @@ export function Contact() {
         <div className="lg:col-span-5">
           <SectionHeading
             eyebrow="Contact"
-            title="Have a project in mind? Let's talk."
+            title="Have a project in mind? Let&apos;s talk."
             description="The fastest way to reach me is the form — or by email. I usually reply within a working day."
           />
 
@@ -75,118 +81,87 @@ export function Contact() {
           </ul>
 
           <div className="mt-8 flex items-center gap-3">
-            <Link
-              href={site.social.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full text-subtle transition-colors duration-hover ease-brand hover:text-accent"
-              style={{ border: "0.5px solid rgb(var(--line))" }}
-            >
-              <Linkedin className="h-4 w-4" />
-            </Link>
-            <Link
-              href={site.social.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full text-subtle transition-colors duration-hover ease-brand hover:text-accent"
-              style={{ border: "0.5px solid rgb(var(--line))" }}
-            >
-              <Github className="h-4 w-4" />
-            </Link>
+            <Button asChild variant="outline" size="icon" aria-label="LinkedIn">
+              <Link href={site.social.linkedin} target="_blank" rel="noopener noreferrer">
+                <Linkedin className="h-4 w-4" />
+              </Link>
+            </Button>
+            <Button asChild variant="outline" size="icon" aria-label="GitHub">
+              <Link href={site.social.github} target="_blank" rel="noopener noreferrer">
+                <Github className="h-4 w-4" />
+              </Link>
+            </Button>
           </div>
         </div>
 
-        <motion.form
-          onSubmit={onSubmit}
+        <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease }}
-          className="lg:col-span-7 card flex flex-col gap-5 p-6 md:p-8"
-          noValidate
+          className="lg:col-span-7"
         >
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-            <Field label="Name" name="name" required autoComplete="name" />
-            <Field label="Email" name="email" type="email" required autoComplete="email" />
-          </div>
-          <Field label="Company (optional)" name="company" autoComplete="organization" />
-          <FieldTextarea label="Project details" name="message" required rows={6} />
+          <Card className="p-6 md:p-8">
+            <form onSubmit={onSubmit} className="flex flex-col gap-5" noValidate>
+              <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+                <Field id="name" label="Name" required autoComplete="name" />
+                <Field id="email" label="Email" type="email" required autoComplete="email" />
+              </div>
+              <Field id="company" label="Company (optional)" autoComplete="organization" />
+              <FieldTextarea id="message" label="Project details" required rows={6} />
 
-          <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
+              <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
 
-          <div className="flex flex-wrap items-center gap-4 pt-2">
-            <button type="submit" disabled={status === "submitting"} className="btn-primary disabled:opacity-60">
-              {status === "submitting" ? "Sending…" : "Send Message"}
-              <ArrowRight className="h-3.5 w-3.5" />
-            </button>
-            {status === "success" && (
-              <span className="font-mono text-[12px] uppercase tracking-widest text-accent">
-                Message sent — I&apos;ll be in touch.
-              </span>
-            )}
-            {status === "error" && (
-              <span className="font-mono text-[12px] uppercase tracking-widest text-subtle">
-                {errorMsg ?? "Couldn't send. Try email instead."}
-              </span>
-            )}
-          </div>
-        </motion.form>
+              <div className="flex flex-wrap items-center gap-4 pt-2">
+                <Button type="submit" disabled={submitting}>
+                  {submitting ? "Sending…" : "Send Message"}
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Button>
+              </div>
+            </form>
+          </Card>
+        </motion.div>
       </div>
     </section>
   );
 }
 
 function Field({
+  id,
   label,
-  name,
   type = "text",
   required,
   autoComplete,
 }: {
+  id: string;
   label: string;
-  name: string;
   type?: string;
   required?: boolean;
   autoComplete?: string;
 }) {
   return (
-    <label className="flex flex-col gap-2">
-      <span className="font-mono text-[11px] uppercase tracking-widest text-subtle">{label}</span>
-      <input
-        type={type}
-        name={name}
-        required={required}
-        autoComplete={autoComplete}
-        className="rounded bg-bg px-4 py-3 text-sm text-text outline-none transition-colors duration-hover ease-brand focus:border-accent"
-        style={{ border: "0.5px solid rgb(var(--line))" }}
-      />
-    </label>
+    <div className="flex flex-col gap-2">
+      <Label htmlFor={id}>{label}</Label>
+      <Input id={id} name={id} type={type} required={required} autoComplete={autoComplete} />
+    </div>
   );
 }
 
 function FieldTextarea({
+  id,
   label,
-  name,
   rows = 4,
   required,
 }: {
+  id: string;
   label: string;
-  name: string;
   rows?: number;
   required?: boolean;
 }) {
   return (
-    <label className="flex flex-col gap-2">
-      <span className="font-mono text-[11px] uppercase tracking-widest text-subtle">{label}</span>
-      <textarea
-        name={name}
-        rows={rows}
-        required={required}
-        className="rounded bg-bg px-4 py-3 text-sm text-text outline-none transition-colors duration-hover ease-brand focus:border-accent"
-        style={{ border: "0.5px solid rgb(var(--line))" }}
-      />
-    </label>
+    <div className="flex flex-col gap-2">
+      <Label htmlFor={id}>{label}</Label>
+      <Textarea id={id} name={id} rows={rows} required={required} />
+    </div>
   );
 }

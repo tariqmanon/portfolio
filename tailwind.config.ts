@@ -9,24 +9,54 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Brand palette (literal hexes — kept for reference / direct use)
         obsidian: "#0D0D0D",
         surface: "#1A1A18",
-        border: "#2A2A28",
         gold: "#B09060",
         cream: "#F0EAE0",
-        muted: "#888888",
         parchment: "#FAFAF8",
-        white: "#FFFFFF",
         stone: "#E0DDD6",
         amber: "#8A6E40",
         ink: "#1A1A1A",
-        slate: "#666666",
+
+        // Brand tokens (theme-aware via CSS vars)
         bg: "rgb(var(--bg) / <alpha-value>)",
         panel: "rgb(var(--panel) / <alpha-value>)",
         line: "rgb(var(--line) / <alpha-value>)",
         accent: "rgb(var(--accent) / <alpha-value>)",
         text: "rgb(var(--text) / <alpha-value>)",
         subtle: "rgb(var(--subtle) / <alpha-value>)",
+
+        // shadcn aliases (mapped to brand tokens in globals.css)
+        background: "rgb(var(--background) / <alpha-value>)",
+        foreground: "rgb(var(--foreground) / <alpha-value>)",
+        border: "rgb(var(--border-token) / <alpha-value>)",
+        input: "rgb(var(--input) / <alpha-value>)",
+        ring: "rgb(var(--ring) / <alpha-value>)",
+        primary: {
+          DEFAULT: "rgb(var(--primary) / <alpha-value>)",
+          foreground: "rgb(var(--primary-foreground) / <alpha-value>)",
+        },
+        secondary: {
+          DEFAULT: "rgb(var(--secondary) / <alpha-value>)",
+          foreground: "rgb(var(--secondary-foreground) / <alpha-value>)",
+        },
+        muted: {
+          DEFAULT: "rgb(var(--muted-bg) / <alpha-value>)",
+          foreground: "rgb(var(--muted-foreground) / <alpha-value>)",
+        },
+        destructive: {
+          DEFAULT: "rgb(var(--destructive) / <alpha-value>)",
+          foreground: "rgb(var(--destructive-foreground) / <alpha-value>)",
+        },
+        card: {
+          DEFAULT: "rgb(var(--card) / <alpha-value>)",
+          foreground: "rgb(var(--card-foreground) / <alpha-value>)",
+        },
+        popover: {
+          DEFAULT: "rgb(var(--popover) / <alpha-value>)",
+          foreground: "rgb(var(--popover-foreground) / <alpha-value>)",
+        },
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
@@ -43,7 +73,8 @@ const config: Config = {
       borderRadius: {
         sm: "4px",
         DEFAULT: "8px",
-        lg: "12px",
+        lg: "var(--radius)",
+        xl: "12px",
       },
       borderWidth: {
         hairline: "0.5px",
@@ -66,6 +97,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };
 export default config;

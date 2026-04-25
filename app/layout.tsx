@@ -44,22 +44,13 @@ export const metadata: Metadata = {
     siteName: "Tariq Manon",
     title: "Tariq Manon — Senior Web Developer & Software Engineer",
     description:
-      "Designing elegant, high-performing websites that captivate and convert.",
-    images: [
-      {
-        url: "/images/brand/logo-dark@2x.png",
-        width: 640,
-        height: 160,
-        alt: "Tariq Manon",
-      },
-    ],
+      "Senior Web Developer building Shopify, WooCommerce and Next.js stores. 6+ years across UK, US and Europe — book a call to discuss your project.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Tariq Manon — Senior Web Developer & Software Engineer",
     description:
-      "Designing elegant, high-performing websites that captivate and convert.",
-    images: ["/images/brand/logo-dark@2x.png"],
+      "Senior Web Developer building Shopify, WooCommerce and Next.js stores. 6+ years across UK, US and Europe — book a call to discuss your project.",
   },
   icons: {
     icon: [

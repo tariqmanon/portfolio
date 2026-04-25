@@ -103,7 +103,7 @@ export const projects: Project[] = [
   {
     title: "BlueFrog (JW Player)",
     category: "React / Vite Frontend",
-    year: "2023",
+    year: "2025",
     summary:
       "Frontend development on a JW Player–powered video product, delivering responsive UI and integrating with media APIs.",
     stack: ["React", "Vite", "TypeScript"],
@@ -112,7 +112,7 @@ export const projects: Project[] = [
   {
     title: "CareApps",
     category: "Framer CMS Build",
-    year: "2023",
+    year: "2025",
     summary: "Marketing site built on Framer CMS with custom interactions and content modelling.",
     stack: ["Framer", "Framer CMS"],
     href: "https://careapps.co.uk",
@@ -120,7 +120,7 @@ export const projects: Project[] = [
   {
     title: "Empathika",
     category: "Framer CMS Build",
-    year: "2023",
+    year: "2025",
     summary: "Brand site delivered on Framer CMS with content-managed sections and case studies.",
     stack: ["Framer", "Framer CMS"],
     href: "https://empathika.com",
@@ -128,20 +128,19 @@ export const projects: Project[] = [
   {
     title: "Kerusso",
     category: "Shopify Theme",
-    year: "2022",
+    year: "2023–2024",
     summary: "Shopify theme work and ongoing customisation for a US-based apparel brand.",
     stack: ["Shopify", "Liquid"],
-    href: "https://www.kerusso.com",
-    caseStudy: "https://dev.tulip-tech.com/case-studies/kerusso",
+    href: "http://kerusso.com/",
   },
   {
     title: "Charnwood Supplies",
     category: "Shopify E-commerce",
-    year: "2023",
+    year: "2022–2023",
     summary:
       "Brought Charnwood Supplies online with a Shopify storefront — set up product catalogue, online purchasing and admin-panel sales data access for the team.",
     stack: ["Shopify", "Liquid"],
-    caseStudy: "https://dev.tulip-tech.com/case-studies/charnwood-supplies",
+    href: "https://www.charnwoodsupplies.co.uk/",
   },
 ];
 

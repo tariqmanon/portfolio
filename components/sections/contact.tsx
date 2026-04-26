@@ -60,7 +60,7 @@ export function Contact() {
           <SectionHeading
             eyebrow="Contact"
             title="Have a project in mind? Let&apos;s talk."
-            description="The fastest way to reach me is the form — or by email. I usually reply within a working day."
+            description="The fastest way to reach me is the form or email. I usually reply within a working day."
           />
 
           <ul className="mt-8 flex flex-col gap-4 text-sm md:mt-10">

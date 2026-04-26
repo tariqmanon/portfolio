@@ -38,8 +38,8 @@ export function Experience() {
 
               <ul className="lg:col-span-8 flex flex-col gap-3">
                 {role.bullets.map((b) => (
-                  <li key={b} className="flex gap-3 text-sm leading-relaxed text-text/90 md:text-base">
-                    <span className="mt-2 inline-block h-px w-3 shrink-0 bg-accent/60" />
+                  <li key={b} className="flex gap-2.5 text-sm leading-relaxed text-text/90 md:text-base">
+                    <span className="mt-2.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-accent/60" />
                     <span className="text-pretty">{b}</span>
                   </li>
                 ))}

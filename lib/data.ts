@@ -32,7 +32,7 @@ export const hero = {
   eyebrow: "Available for Work",
   title: "Elegant, high-performing websites that captivate and convert.",
   subtitle:
-    "I'm Tariq — a Software Engineer with 6+ years specialising in Shopify and WooCommerce stores, plus Next.js, Framer and Magento builds, for clients across the UK, US and Europe.",
+    "I'm Tariq, a Software Engineer with 6+ years specialising in Shopify and WooCommerce stores, plus Next.js, Framer and Magento builds for clients across the UK, US and Europe.",
   meta: [
     { label: "Based in", value: "Dhaka, Bangladesh" },
     { label: "Currently at", value: "Tuliptech Ltd, Leicester" },
@@ -85,7 +85,7 @@ export const projects: Project[] = [
     category: "SaaS / Warehouse Automation",
     year: "2024",
     summary:
-      "Set up CI/CD via GitHub Actions and Vercel for the VelaOps Next.js platform — cutting deploy time by ~50% and stabilising release cadence.",
+      "Set up CI/CD via GitHub Actions and Vercel for the VelaOps Next.js platform, cutting deploy time by ~50% and stabilising release cadence.",
     metrics: ["Deploy time cut by ~50%"],
     stack: ["Next.js", "Vercel", "GitHub Actions"],
     href: "https://velaops.ai",
@@ -97,7 +97,7 @@ export const projects: Project[] = [
     category: "Magento (Adobe Commerce)",
     year: "2025",
     summary:
-      "Leading the Magento 2 migration from scratch — store architecture, theming, and integration with the existing operations stack.",
+      "Leading the Magento 2 migration from scratch, covering store architecture, theming, and integration with the existing operations stack.",
     stack: ["Magento 2", "Adobe Commerce", "PHP"],
     href: "https://www.gafbros.co.uk",
     image: "/images/projects/gafbros.png",
@@ -132,7 +132,7 @@ export const projects: Project[] = [
     category: "Shopify E-commerce",
     year: "2022–2023",
     summary:
-      "Brought Charnwood Supplies online with a Shopify storefront — set up product catalogue, online purchasing and admin-panel sales data access for the team.",
+      "Brought Charnwood Supplies online with a Shopify storefront, product catalogue, online purchasing and admin-panel sales data access for the team.",
     stack: ["Shopify", "Liquid"],
     href: "https://www.charnwoodsupplies.co.uk/",
   },
@@ -173,7 +173,7 @@ export const services = [
     name: "Magento (Adobe Commerce)",
     from: "On request",
     description:
-      "Adobe Commerce builds and migrations — store architecture, theming and integration with operations.",
+      "Adobe Commerce builds and migrations covering store architecture, theming and integration with operations.",
     bullets: ["Magento 2 theming", "Migrations", "Module work", "B2B / multi-store"],
   },
 ];
@@ -189,7 +189,7 @@ export const stack = [
 export const about = {
   paragraphs: [
     "I'm a Software Engineer and Senior Web Developer based in Dhaka, working onsite for Tuliptech Ltd in Leicester, UK. Over the last six years I've built e-commerce and SaaS products for clients across the UK, US and Europe.",
-    "I work across the full stack — Shopify, WooCommerce, React, Next.js, Framer, and now Magento — and pick up new technologies fast by applying them directly to live projects. I take ownership of what I build and enjoy working closely with teams to get things done properly.",
+    "I work across the full stack with Shopify, WooCommerce, React, Next.js, Framer, and now Magento. I pick up new technologies fast by applying them directly to live projects, take ownership of what I build, and enjoy working closely with teams to get things done properly.",
   ],
   quickFacts: [
     { label: "Years building", value: "6+" },
@@ -217,7 +217,7 @@ export const experience: Role[] = [
       "Led WooCommerce-to-Shopify migration for Stateside Distribution, delivering a 20% increase in conversion rate.",
       "Built Shopify Flow automation to block fraudulent addresses and improved LCP / cleared render-blocking resources.",
       "Developed Catered by Clink (cateredbyclink.org) WooCommerce site from scratch with a fully custom checkout.",
-      "Integrated 8+ third-party APIs (payments, shipping, CRM, Klaviyo, One Click Upsell) — cutting onboarding time by ~30%.",
+      "Integrated 8+ third-party APIs for payments, shipping, CRM, Klaviyo and One Click Upsell, cutting onboarding time by ~30%.",
       "Delivered React and Vite frontend work for BlueFrog (JW Player) and the Tuliptech site; built CareApps and Empathika on Framer CMS.",
       "Leading Magento (Adobe Commerce) migration for Gafbros from scratch; set up CI/CD via GitHub Actions and Vercel for VelaOps (Next.js), cutting deploy time by ~50%.",
     ],
@@ -253,9 +253,9 @@ export const education = [
 ];
 
 export const development = [
-  "Web Design & Freelancing Certification — CodersTrust Bangladesh Ltd (2017)",
-  "Magento 2 Theming — M.Academy (in progress, alongside live Gafbros project)",
-  "AI-driven Shopify development — using Claude AI and OpenAI to accelerate builds",
+  "Web Design & Freelancing Certification, CodersTrust Bangladesh Ltd (2017)",
+  "Magento 2 Theming, M.Academy (in progress, alongside live Gafbros project)",
+  "AI-driven Shopify development using Claude AI and OpenAI to accelerate builds",
   "MCP-based workflow automation and SEO / digital marketing with AI tooling",
 ];
 
@@ -272,8 +272,8 @@ export const posts: Post[] = [
   {
     title: "Migrating WooCommerce to Shopify without losing SEO",
     excerpt:
-      "What I learned moving Stateside Distribution to Shopify — URL mapping, structured data, and the redirect strategy that protected the conversion rate during the cutover.",
-    date: "2026 — Coming soon",
+      "What I learned moving Stateside Distribution to Shopify, including URL mapping, structured data, and the redirect strategy that protected the conversion rate during the cutover.",
+    date: "2026, coming soon",
     readingTime: "8 min",
     tag: "Shopify",
   },
@@ -281,15 +281,15 @@ export const posts: Post[] = [
     title: "Shopify Flow recipes that actually save time",
     excerpt:
       "The handful of automations I reach for on every store: blocking fraudulent addresses, tagging high-LTV customers, and routing wholesale orders to a dedicated fulfilment workflow.",
-    date: "2026 — Coming soon",
+    date: "2026, coming soon",
     readingTime: "6 min",
     tag: "Automation",
   },
   {
     title: "Hitting PageSpeed 90+ on a real WordPress site",
     excerpt:
-      "How I take a typical WooCommerce install from PageSpeed ~40 to 90+ without breaking the theme — render-blocking cleanup, image strategy, and the plugins worth keeping.",
-    date: "2026 — Coming soon",
+      "How I take a typical WooCommerce install from PageSpeed ~40 to 90+ without breaking the theme, from render-blocking cleanup to image strategy and the plugins worth keeping.",
+    date: "2026, coming soon",
     readingTime: "10 min",
     tag: "Performance",
   },

@@ -20,8 +20,8 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://tariqmanon.com"),
   title: {
-    default: "Tariq Manon — Senior Web Developer & Software Engineer",
-    template: "%s — Tariq Manon",
+    default: "Tariq Manon | Senior Web Developer & Software Engineer",
+    template: "%s | Tariq Manon",
   },
   description:
     "Senior Web Developer and Software Engineer building elegant, high-performing e-commerce and SaaS products with Shopify, Next.js, Framer and Magento. 6+ years across UK, US and Europe.",
@@ -42,15 +42,15 @@ export const metadata: Metadata = {
     locale: "en_GB",
     url: "https://tariqmanon.com",
     siteName: "Tariq Manon",
-    title: "Tariq Manon — Senior Web Developer & Software Engineer",
+    title: "Tariq Manon | Senior Web Developer & Software Engineer",
     description:
-      "Senior Web Developer building Shopify, WooCommerce and Next.js stores. 6+ years across UK, US and Europe — book a call to discuss your project.",
+      "Senior Web Developer building Shopify, WooCommerce and Next.js stores. 6+ years across UK, US and Europe. Book a call to discuss your project.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tariq Manon — Senior Web Developer & Software Engineer",
+    title: "Tariq Manon | Senior Web Developer & Software Engineer",
     description:
-      "Senior Web Developer building Shopify, WooCommerce and Next.js stores. 6+ years across UK, US and Europe — book a call to discuss your project.",
+      "Senior Web Developer building Shopify, WooCommerce and Next.js stores. 6+ years across UK, US and Europe. Book a call to discuss your project.",
   },
   icons: {
     icon: [

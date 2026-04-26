@@ -52,9 +52,9 @@ export function Education() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-80px" }}
                   transition={{ duration: 0.5, ease, delay: i * 0.04 }}
-                  className="flex gap-3 text-sm leading-relaxed text-text/90 md:text-base"
+                  className="flex gap-2.5 text-sm leading-relaxed text-text/90 md:text-base"
                 >
-                  <span className="mt-2 inline-block h-px w-3 shrink-0 bg-accent/60" />
+                  <span className="mt-2.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-accent/60" />
                   <span className="text-pretty">{d}</span>
                 </motion.li>
               ))}

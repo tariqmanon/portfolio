@@ -15,7 +15,7 @@ export function Services() {
         <SectionHeading
           eyebrow="Services"
           title="What I build for clients."
-          description="Most engagements start with a Shopify build or migration, a custom WooCommerce site, or a Next.js project. Pricing below is a starting point — every project is scoped to fit."
+          description="Most engagements start with a Shopify build or migration, a custom WooCommerce site, or a Next.js project. Pricing below is a starting point, and every project is scoped to fit."
         />
 
         <div className="mt-10 grid grid-cols-1 gap-6 md:mt-12 md:grid-cols-2">

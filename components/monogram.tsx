@@ -6,7 +6,7 @@ export function Monogram({ className }: { className?: string }) {
   return (
     <Link
       href="#top"
-      aria-label="Tariq Manon — home"
+      aria-label="Tariq Manon home"
       className={cn(
         "group inline-flex items-center transition-opacity duration-hover ease-brand hover:opacity-80",
         className

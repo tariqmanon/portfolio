@@ -16,7 +16,7 @@ export function Blog() {
         <SectionHeading
           eyebrow="Writing"
           title="Notes from shipping real client work."
-          description="Short, practical posts on Shopify, WooCommerce and performance — informed by the day-to-day. CMS launching soon."
+          description="Short, practical posts on Shopify, WooCommerce and performance, informed by day-to-day client work. CMS launching soon."
         />
 
         <div className="mt-10 grid grid-cols-1 gap-6 md:mt-12 md:grid-cols-3">

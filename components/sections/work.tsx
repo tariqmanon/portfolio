@@ -22,7 +22,7 @@ export function Work() {
         <SectionHeading
           eyebrow="Selected Work"
           title="A few things I&apos;ve built recently."
-          description="A selection of e-commerce, SaaS and marketing builds shipped between 2022 and 2025 — most under Tuliptech, a few from earlier freelance work."
+          description="A selection of e-commerce, SaaS and marketing builds shipped between 2022 and 2025. Most were built under Tuliptech, with a few from earlier freelance work."
         />
 
         <div className="mt-10 grid grid-cols-1 gap-6 md:mt-12 md:grid-cols-2">
@@ -48,7 +48,7 @@ export function Work() {
                   {p.image ? (
                     <Image
                       src={p.image}
-                      alt={`${p.title} — ${p.category}`}
+                      alt={`${p.title}, ${p.category}`}
                       fill
                       sizes="(min-width: 768px) 50vw, 100vw"
                       className="object-cover transition-transform duration-page ease-brand group-hover:scale-[1.02]"
@@ -110,7 +110,7 @@ export function Work() {
                           key={m}
                           className="font-mono text-[12px] tracking-wide text-accent"
                         >
-                          — {m}
+                          {m}
                         </li>
                       ))}
                     </ul>

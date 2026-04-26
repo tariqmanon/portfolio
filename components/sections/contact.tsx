@@ -41,11 +41,11 @@ export function Contact() {
       const json = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(json?.error || "Something went wrong. Please try again.");
       toast.success("Message sent.", {
-        description: "I&apos;ll get back to you within a working day.",
+        description: "I'll get back to you within a working day.",
       });
       form.reset();
     } catch (err) {
-      toast.error("Couldn&apos;t send.", {
+      toast.error("Couldn't send.", {
         description: err instanceof Error ? err.message : "Please email me directly.",
       });
     } finally {

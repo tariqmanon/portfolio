@@ -90,7 +90,15 @@ export async function POST(req: Request) {
     });
     if (error) {
       console.error("Resend error:", error);
-      return NextResponse.json({ error: "Could not send. Please email directly." }, { status: 502 });
+      const detail = typeof error === "object" && error && "message" in error ? String(error.message) : "";
+      return NextResponse.json(
+        {
+          error: detail && process.env.NODE_ENV !== "production"
+            ? `Could not send: ${detail}`
+            : "Could not send. Please email directly.",
+        },
+        { status: 502 }
+      );
     }
     return NextResponse.json({ ok: true });
   } catch (err) {

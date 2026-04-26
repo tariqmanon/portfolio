@@ -9,7 +9,7 @@ const ease = [0.4, 0, 0.2, 1] as const;
 export function Education() {
   return (
     <section id="education" className="section">
-      <div className="container-x grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+      <div className="container-x grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-5">
           <SectionHeading
             eyebrow="Education & Development"
@@ -17,7 +17,7 @@ export function Education() {
           />
         </div>
 
-        <div className="lg:col-span-7 flex flex-col gap-10">
+        <div className="lg:col-span-7 flex flex-col gap-8 md:gap-10">
           <div>
             <h3 className="label-eyebrow mb-4">Education</h3>
             <ul className="flex flex-col">

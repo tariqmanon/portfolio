@@ -17,7 +17,7 @@ export function Work() {
   const more = projects.filter((p) => !p.featured);
 
   return (
-    <section id="work" className="section">
+    <section id="work" className="scroll-mt-24 pt-8 pb-8 md:pt-10 md:pb-10 lg:pt-12 lg:pb-12">
       <div className="container-x">
         <SectionHeading
           eyebrow="Selected Work"
@@ -25,7 +25,7 @@ export function Work() {
           description="A selection of e-commerce, SaaS and marketing builds shipped between 2022 and 2025 — most under Tuliptech, a few from earlier freelance work."
         />
 
-        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div className="mt-10 grid grid-cols-1 gap-6 md:mt-12 md:grid-cols-2">
           {featured.map((p, i) => (
             <motion.div
               key={p.title}
@@ -142,7 +142,7 @@ export function Work() {
         </div>
 
         {more.length > 0 && (
-          <div className="mt-16">
+          <div className="mt-10 md:mt-12">
             <h3 className="label-eyebrow mb-6">Also Built</h3>
             <ul className="flex flex-col">
               {more.map((p) => (
@@ -151,7 +151,7 @@ export function Work() {
                   className="hairline-t group flex flex-wrap items-center justify-between gap-4 py-5 transition-colors duration-hover ease-brand last:hairline-b"
                 >
                   <div className="flex flex-col gap-1">
-                    <div className="flex items-baseline gap-3">
+                    <div className="flex flex-wrap items-center gap-3">
                       <h4 className="text-base font-medium md:text-lg">{p.title}</h4>
                       <Badge>{p.category}</Badge>
                     </div>

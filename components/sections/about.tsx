@@ -19,7 +19,7 @@ export function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6, ease }}
-            className="mt-10 max-w-sm"
+            className="mt-8 max-w-sm md:mt-10"
           >
             <div
               className="relative aspect-[3/4] overflow-hidden rounded bg-panel"
@@ -67,7 +67,7 @@ export function About() {
             ))}
           </div>
 
-          <dl className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded md:grid-cols-4" style={{ border: "0.5px solid rgb(var(--line))", background: "rgb(var(--line))" }}>
+          <dl className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded md:mt-12 md:grid-cols-4" style={{ border: "0.5px solid rgb(var(--line))", background: "rgb(var(--line))" }}>
             {about.quickFacts.map((f) => (
               <div key={f.label} className="flex flex-col gap-1 bg-panel p-5">
                 <dt className="font-mono text-[10px] uppercase tracking-widest text-subtle">

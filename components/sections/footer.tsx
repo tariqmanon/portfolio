@@ -5,8 +5,8 @@ import { nav, site } from "@/lib/data";
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="hairline-t mt-12 md:mt-24">
-      <div className="container-x flex flex-col gap-10 py-14">
+    <footer className="hairline-t mt-6 md:mt-10">
+      <div className="container-x flex flex-col gap-10 py-10 md:py-12">
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           <div className="flex flex-col gap-4 max-w-md">
             <Monogram />

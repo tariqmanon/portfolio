@@ -15,7 +15,7 @@ export function Experience() {
           title="Where I've worked."
         />
 
-        <ol className="mt-16 flex flex-col">
+        <ol className="mt-10 flex flex-col md:mt-12">
           {experience.map((role, i) => (
             <motion.li
               key={role.company}

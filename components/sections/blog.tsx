@@ -19,7 +19,7 @@ export function Blog() {
           description="Short, practical posts on Shopify, WooCommerce and performance — informed by the day-to-day. CMS launching soon."
         />
 
-        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-6 md:mt-12 md:grid-cols-3">
           {posts.map((p, i) => (
             <motion.div
               key={p.title}

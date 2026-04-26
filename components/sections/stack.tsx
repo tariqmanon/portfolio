@@ -21,7 +21,7 @@ export function Stack() {
           description="The languages, frameworks and platforms I work with day-to-day."
         />
 
-        <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded md:grid-cols-2 lg:grid-cols-3" style={{ border: "0.5px solid rgb(var(--line))", background: "rgb(var(--line))" }}>
+        <div className="mt-10 grid grid-cols-1 gap-px overflow-hidden rounded md:mt-12 md:grid-cols-2 lg:grid-cols-3" style={{ border: "0.5px solid rgb(var(--line))", background: "rgb(var(--line))" }}>
           {stack.map((g, i) => (
             <motion.div
               key={g.group}
@@ -47,7 +47,7 @@ export function Stack() {
         </div>
 
         <div className={cn(
-          "relative mt-12 flex w-full flex-col items-center justify-center overflow-hidden rounded",
+          "relative mt-10 flex w-full flex-col items-center justify-center overflow-hidden rounded md:mt-12",
         )}
         style={{ border: "0.5px solid rgb(var(--line))" }}
         >

@@ -13,7 +13,7 @@ const ease = [0.4, 0, 0.2, 1] as const;
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pt-28 md:pt-44 pb-14 md:pb-section md:pb-section-lg">
+    <section id="top" className="relative overflow-hidden pt-28 pb-8 md:pt-44 md:pb-12 lg:pb-14">
       <DotPattern
         className={cn(
           "[mask-image:radial-gradient(ellipse_at_top,white,transparent_70%)]",
@@ -90,7 +90,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.7, ease, delay: 0.4 }}
-          className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-10"
+          className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-10 md:mt-16"
         >
           {hero.meta.map((m) => (
             <div key={m.label} className="flex flex-col gap-1 hairline-t pt-4">

@@ -18,7 +18,7 @@ export function Services() {
           description="Most engagements start with a Shopify build or migration, a custom WooCommerce site, or a Next.js project. Pricing below is a starting point — every project is scoped to fit."
         />
 
-        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div className="mt-10 grid grid-cols-1 gap-6 md:mt-12 md:grid-cols-2">
           {services.map((s, i) => (
             <motion.div
               key={s.name}

@@ -63,7 +63,7 @@ export function Contact() {
             description="The fastest way to reach me is the form — or by email. I usually reply within a working day."
           />
 
-          <ul className="mt-10 flex flex-col gap-4 text-sm">
+          <ul className="mt-8 flex flex-col gap-4 text-sm md:mt-10">
             <li className="flex items-center gap-3 text-text/90">
               <Mail className="h-4 w-4 text-accent" />
               <Link href={`mailto:${site.email}`} className="transition-colors duration-hover ease-brand hover:text-accent">

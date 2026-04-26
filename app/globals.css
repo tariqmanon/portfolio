@@ -97,7 +97,7 @@
   }
 
   .section {
-    @apply scroll-mt-24 py-14 md:py-section md:py-section-lg;
+    @apply scroll-mt-24 py-8 md:py-10 lg:py-12;
   }
 }
 

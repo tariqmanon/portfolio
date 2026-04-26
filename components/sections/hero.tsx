@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowDownRight, Sparkles } from "lucide-react";
+import { ArrowRight, ArrowDownRight, Download, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AnimatedShinyText } from "@/components/magicui/animated-shiny-text";
 import { DotPattern } from "@/components/magicui/dot-pattern";
@@ -72,16 +72,16 @@ export function Hero() {
           transition={{ duration: 0.7, ease, delay: 0.25 }}
           className="mt-10 flex flex-wrap items-center gap-3"
         >
-          <Button asChild size="lg">
-            <Link href={site.cta.href} target="_blank" rel="noopener noreferrer">
-              {site.cta.label}
-              <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
-          </Button>
           <Button asChild variant="outline" size="lg">
             <Link href="#work">
               See Selected Work
               <ArrowDownRight className="h-3.5 w-3.5" />
+            </Link>
+          </Button>
+          <Button asChild size="lg">
+            <Link href={site.resume.href} download>
+              {site.resume.label}
+              <Download className="h-3.5 w-3.5" />
             </Link>
           </Button>
         </motion.div>

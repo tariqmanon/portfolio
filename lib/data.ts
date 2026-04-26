@@ -14,6 +14,10 @@ export const site = {
     label: "Book a Call",
     href: "https://calendly.com/webpexbd/web-design-workshop?month=2026-04",
   },
+  resume: {
+    label: "Download CV",
+    href: "/MD%20TARIQUL%20ISLAM%20MANON-01685809188.pdf",
+  },
 } as const;
 
 export const nav = [
@@ -73,7 +77,6 @@ export const projects: Project[] = [
       "Built from scratch with a fully custom checkout designed for scale and easy backend management. Integrated payments, shipping and CRM workflows.",
     stack: ["WooCommerce", "WordPress", "PHP", "Custom Checkout"],
     href: "https://cateredbyclink.org",
-    caseStudy: "https://dev.tulip-tech.com/case-studies/catered-by-clink",
     image: "/images/projects/clink.png",
     featured: true,
   },
@@ -99,15 +102,6 @@ export const projects: Project[] = [
     href: "https://www.gafbros.co.uk",
     image: "/images/projects/gafbros.png",
     featured: true,
-  },
-  {
-    title: "BlueFrog (JW Player)",
-    category: "React / Vite Frontend",
-    year: "2025",
-    summary:
-      "Frontend development on a JW Player–powered video product, delivering responsive UI and integrating with media APIs.",
-    stack: ["React", "Vite", "TypeScript"],
-    href: "https://bluefrogplus.com",
   },
   {
     title: "CareApps",
@@ -141,6 +135,15 @@ export const projects: Project[] = [
       "Brought Charnwood Supplies online with a Shopify storefront — set up product catalogue, online purchasing and admin-panel sales data access for the team.",
     stack: ["Shopify", "Liquid"],
     href: "https://www.charnwoodsupplies.co.uk/",
+  },
+  {
+    title: "BlueFrog (JW Player)",
+    category: "React / Vite Frontend",
+    year: "2025",
+    summary:
+      "Frontend development on a JW Player–powered video product, delivering responsive UI and integrating with media APIs.",
+    stack: ["React", "Vite", "TypeScript"],
+    href: "https://bluefrogplus.com",
   },
 ];
 

@@ -1,7 +1,9 @@
 "use client";
 
+import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -16,42 +18,77 @@ export function Blog() {
         <SectionHeading
           eyebrow="Writing"
           title="Notes from shipping real client work."
-          description="Short, practical posts on Shopify, WooCommerce and performance, informed by day-to-day client work. CMS launching soon."
+          description="Short, practical posts on Shopify, WooCommerce and performance, informed by day-to-day client work."
         />
 
-        <div className="mt-10 grid grid-cols-1 gap-6 md:mt-12 md:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-6 md:mt-12 md:grid-cols-2">
           {posts.map((p, i) => (
             <motion.div
-              key={p.title}
+              key={p.slug}
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.6, ease, delay: i * 0.05 }}
             >
-              <Card className="group flex h-full flex-col gap-4 p-6 hover:[border-color:rgb(var(--accent)/0.5)]">
-                <div className="flex items-center justify-between">
-                  <Badge>{p.tag}</Badge>
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-subtle">
-                    {p.readingTime}
-                  </span>
-                </div>
+              <Link href={p.href} className="block h-full">
+                <Card className="group flex h-full flex-col overflow-hidden hover:[border-color:rgb(var(--accent)/0.5)]">
+                  {p.image ? (
+                    <div className="hairline-b relative aspect-[16/10] overflow-hidden bg-panel">
+                      <Image
+                        src={p.image}
+                        alt={p.imageAlt || p.title}
+                        fill
+                        sizes="(min-width: 768px) 50vw, 100vw"
+                        className="object-cover transition-transform duration-page ease-brand group-hover:scale-[1.02]"
+                      />
+                    </div>
+                  ) : (
+                    <div
+                      className="hairline-b relative flex aspect-[16/10] items-center justify-center bg-panel"
+                      aria-hidden
+                    >
+                      <span className="font-mono text-[10px] uppercase tracking-widest text-subtle">
+                        {p.tag}
+                      </span>
+                    </div>
+                  )}
 
-                <h3 className="text-lg font-semibold leading-snug tracking-tight md:text-xl">
-                  {p.title}
-                </h3>
-                <p className="text-pretty text-sm leading-relaxed text-subtle">
-                  {p.excerpt}
-                </p>
+                  <div className="flex flex-1 flex-col gap-4 p-6">
+                    <div className="flex items-center justify-between">
+                      <Badge>{p.tag}</Badge>
+                      <span className="font-mono text-[10px] uppercase tracking-widest text-subtle">
+                        {p.readingTime}
+                      </span>
+                    </div>
 
-                <div className="mt-auto flex items-center justify-between pt-3 hairline-t">
-                  <span className="font-mono text-[11px] uppercase tracking-widest text-subtle">
-                    {p.date}
-                  </span>
-                  <ArrowUpRight className="h-4 w-4 text-subtle transition-colors duration-hover ease-brand group-hover:text-accent" />
-                </div>
-              </Card>
+                    <h3 className="text-lg font-semibold leading-snug tracking-tight md:text-xl">
+                      {p.title}
+                    </h3>
+                    <p className="text-pretty text-sm leading-relaxed text-subtle">
+                      {p.excerpt}
+                    </p>
+
+                    <div className="mt-auto flex items-center justify-between pt-3 hairline-t">
+                      <span className="font-mono text-[11px] uppercase tracking-widest text-subtle">
+                        {p.date}
+                      </span>
+                      <ArrowUpRight className="h-4 w-4 text-subtle transition-colors duration-hover ease-brand group-hover:text-accent" />
+                    </div>
+                  </div>
+                </Card>
+              </Link>
             </motion.div>
           ))}
+        </div>
+
+        <div className="mt-10 flex justify-center md:mt-12">
+          <Link
+            href="/blog"
+            className="group inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-subtle transition-colors duration-hover ease-brand hover:text-accent"
+          >
+            View all writing
+            <ArrowRight className="h-3.5 w-3.5 transition-transform duration-hover ease-brand group-hover:translate-x-0.5" />
+          </Link>
         </div>
       </div>
     </section>

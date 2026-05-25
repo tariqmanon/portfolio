@@ -8,7 +8,14 @@
       "Bash(npx --yes shadcn@latest init --help)",
       "Bash(npx --yes shadcn@latest init --defaults --force --no-monorepo --no-rtl --no-pointer --silent)",
       "Edit(/.claude/skills/frontend-ui/**)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(ls -lt ~/Downloads 2>/dev/null | head -10; echo \"---\"; ls -lt ~/Desktop 2>/dev/null | head -10)",
+      "Read(//Users/mdtariqulislammanon/Downloads/**)",
+      "Read(//Users/mdtariqulislammanon/Desktop/**)",
+      "Bash(cp \"/Users/mdtariqulislammanon/Downloads/Shopify Product Template.png\" \"/Users/mdtariqulislammanon/tariqmanon-portfolio/public/images/blog/shopify-product-template.png\" && ls -la /Users/mdtariqulislammanon/tariqmanon-portfolio/public/images/blog/)"
+    ],
+    "additionalDirectories": [
+      "/Users/mdtariqulislammanon/Downloads"
     ]
   }
 }

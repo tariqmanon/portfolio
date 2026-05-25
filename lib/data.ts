@@ -260,37 +260,71 @@ export const development = [
 ];
 
 export type Post = {
+  slug: string;
   title: string;
   excerpt: string;
+  description: string;
   date: string;
+  dateISO: string;
   readingTime: string;
   tag: string;
-  href?: string;
+  keywords: string[];
+  href: string;
+  image?: string;
+  imageAlt?: string;
 };
 
 export const posts: Post[] = [
   {
-    title: "Migrating WooCommerce to Shopify without losing SEO",
+    slug: "shopify-product-template-variant-tabs-accordion",
+    title:
+      "Building a modern Shopify product template with variant tabs and a specification accordion",
     excerpt:
-      "What I learned moving Stateside Distribution to Shopify, including URL mapping, structured data, and the redirect strategy that protected the conversion rate during the cutover.",
-    date: "2026, coming soon",
-    readingTime: "8 min",
+      "How to ship a premium product page in Shopify — variant tabs instead of dropdowns, a clean spec accordion, and the Liquid + CSS + JS split that keeps it maintainable.",
+    description:
+      "A practical walkthrough of building a modern Shopify product page: variant tabs instead of dropdowns, a clean specification accordion, and the professional Liquid + CSS + JS split that scales across stores.",
+    date: "May 25, 2026",
+    dateISO: "2026-05-25",
+    readingTime: "9 min",
     tag: "Shopify",
+    keywords: [
+      "Shopify product template",
+      "Shopify variant tabs",
+      "Shopify accordion",
+      "Liquid",
+      "Shopify theme architecture",
+      "Shopify product page",
+      "Dawn theme",
+      "Online Store 2.0",
+    ],
+    href: "/blog/shopify-product-template-variant-tabs-accordion",
+    image: "/images/blog/shopify-product-template.png",
+    imageAlt:
+      "Modern Shopify product page for a lounge chair with variant tabs (Small, Medium, Large, XL) and an expanded specifications accordion",
   },
   {
-    title: "Shopify Flow recipes that actually save time",
+    slug: "shopify-cli-github-cicd-pipeline",
+    title: "Shopify CLI, GitHub and CI/CD — a professional theme workflow",
     excerpt:
-      "The handful of automations I reach for on every store: blocking fraudulent addresses, tagging high-LTV customers, and routing wholesale orders to a dedicated fulfilment workflow.",
-    date: "2026, coming soon",
-    readingTime: "6 min",
-    tag: "Automation",
-  },
-  {
-    title: "Hitting PageSpeed 90+ on a real WordPress site",
-    excerpt:
-      "How I take a typical WooCommerce install from PageSpeed ~40 to 90+ without breaking the theme, from render-blocking cleanup to image strategy and the plugins worth keeping.",
-    date: "2026, coming soon",
-    readingTime: "10 min",
-    tag: "Performance",
+      "How I run Shopify theme work in 2026 — Shopify CLI for local dev, GitHub for version control, and GitHub Actions for safe, automated deploys to live and staging themes.",
+    description:
+      "A professional Shopify development workflow with Shopify CLI, GitHub branches, pull requests and GitHub Actions CI/CD — including a real deploy.yml, project structure, and the guardrails that keep live themes safe.",
+    date: "May 25, 2026",
+    dateISO: "2026-05-25",
+    readingTime: "8 min",
+    tag: "DevOps",
+    keywords: [
+      "Shopify CLI",
+      "Shopify GitHub integration",
+      "Shopify CI/CD",
+      "GitHub Actions Shopify",
+      "Shopify theme deploy",
+      "shopify theme dev",
+      "Shopify staging theme",
+    ],
+    href: "/blog/shopify-cli-github-cicd-pipeline",
+    image: "/images/blog/shopify-cicd-workflow.png",
+    imageAlt:
+      "Infographic of the Shopify theme CI/CD workflow — Shopify CLI plus GitHub plus GitHub Actions, showing the six-step pipeline from local development to auto-deploy",
   },
 ];

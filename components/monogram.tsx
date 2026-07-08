@@ -1,11 +1,18 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 export function Monogram({ className }: { className?: string }) {
+  const pathname = usePathname();
+  // On the homepage, smooth-scroll to the top. On any other route, navigate home.
+  const href = pathname === "/" ? "#top" : "/";
+
   return (
     <Link
-      href="#top"
+      href={href}
       aria-label="Tariq Manon home"
       className={cn(
         "group inline-flex items-center transition-opacity duration-hover ease-brand hover:opacity-80",

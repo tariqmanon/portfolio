@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Code2 } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -122,17 +122,30 @@ export function Work() {
                     ))}
                   </div>
 
-                  {p.caseStudy && (
-                    <div className="hairline-t pt-4">
-                      <Link
-                        href={p.caseStudy}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-accent transition-opacity duration-hover ease-brand hover:opacity-80"
-                      >
-                        Read Case Study
-                        <ArrowUpRight className="h-3.5 w-3.5" />
-                      </Link>
+                  {(p.caseStudy || p.repo) && (
+                    <div className="hairline-t flex flex-wrap items-center gap-x-6 gap-y-2 pt-4">
+                      {p.caseStudy && (
+                        <Link
+                          href={p.caseStudy}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-accent transition-opacity duration-hover ease-brand hover:opacity-80"
+                        >
+                          Read Case Study
+                          <ArrowUpRight className="h-3.5 w-3.5" />
+                        </Link>
+                      )}
+                      {p.repo && (
+                        <Link
+                          href={p.repo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-accent transition-opacity duration-hover ease-brand hover:opacity-80"
+                        >
+                          View Code
+                          <ArrowUpRight className="h-3.5 w-3.5" />
+                        </Link>
+                      )}
                     </div>
                   )}
                 </div>
@@ -161,6 +174,17 @@ export function Work() {
                     <span className="font-mono text-[11px] tracking-widest text-subtle">
                       {p.year}
                     </span>
+                    {p.repo && (
+                      <Link
+                        href={p.repo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`View ${p.title} code`}
+                        className="text-subtle transition-colors duration-hover ease-brand hover:text-accent"
+                      >
+                        <Code2 className="h-4 w-4" />
+                      </Link>
+                    )}
                     {p.href && (
                       <Link
                         href={p.href}

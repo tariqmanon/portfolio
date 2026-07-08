@@ -49,12 +49,26 @@ export type Project = {
   metrics?: string[];
   stack: string[];
   href?: string;
+  repo?: string;
   caseStudy?: string;
   image?: string;
   featured?: boolean;
 };
 
 export const projects: Project[] = [
+  {
+    title: "StretchSense Gaming",
+    client: "StretchSense",
+    category: "Shopify Custom Landing",
+    year: "2025",
+    summary:
+      "Built the StretchSense Gaming launch experience — an immersive, animated product landing for their VR motion-capture gloves. Gesture-driven hero visuals, a pre-order flow and a fully responsive Shopify storefront.",
+    stack: ["Shopify", "Liquid", "JavaScript", "CSS Animation"],
+    href: "https://shop.stretchsense.com/",
+    repo: "https://github.com/tariqmanon/stretchsense-gaming/",
+    image: "/images/projects/strech-sense.png",
+    featured: true,
+  },
   {
     title: "Stateside Distribution",
     client: "Stateside Distribution",
@@ -144,6 +158,16 @@ export const projects: Project[] = [
       "Frontend development on a JW Player–powered video product, delivering responsive UI and integrating with media APIs.",
     stack: ["React", "Vite", "TypeScript"],
     href: "https://bluefrogplus.com",
+  },
+  {
+    title: "SwitchGrid",
+    category: "Next.js Marketing Site",
+    year: "2025",
+    summary:
+      "Marketing site for a UK energy consultancy serving restaurants, care homes and hospitality — built on Next.js with a free-audit lead flow and a fast, content-managed frontend.",
+    stack: ["Next.js", "React", "TypeScript"],
+    href: "https://switchgrid.co.uk",
+    repo: "https://github.com/Tulip-Tech/switchgrid",
   },
 ];
 

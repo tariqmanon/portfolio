@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Monogram } from "./monogram";
 import { ThemeToggle } from "./theme-toggle";
@@ -12,6 +13,10 @@ import { cn } from "@/lib/utils";
 export function Nav() {
   const [scrolled, setScrolled] = React.useState(false);
   const [open, setOpen] = React.useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  // On subpages, in-page anchors (#work) must point back to the homepage (/#work).
+  const resolve = (href: string) => (href.startsWith("#") && !isHome ? `/${href}` : href);
 
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -38,7 +43,7 @@ export function Nav() {
           {nav.map((item) => (
             <Link
               key={item.href}
-              href={item.href}
+              href={resolve(item.href)}
               className="font-mono text-[12px] uppercase tracking-wider text-subtle transition-colors duration-hover ease-brand hover:text-accent"
             >
               {item.label}
@@ -76,7 +81,7 @@ export function Nav() {
             {nav.map((item) => (
               <Link
                 key={item.href}
-                href={item.href}
+                href={resolve(item.href)}
                 onClick={() => setOpen(false)}
                 className="font-mono text-sm uppercase tracking-wider text-subtle transition-colors duration-hover ease-brand hover:text-accent"
               >

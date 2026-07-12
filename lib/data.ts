@@ -300,6 +300,59 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "woocommerce-to-shopify-migration-seo-conversions",
+    title:
+      "Migrating WooCommerce to Shopify without losing SEO or conversions",
+    excerpt:
+      "The process I use to replatform a store from WooCommerce to Shopify — redirect mapping, data migration and the conversion work — the way I ran it for Stateside Distribution for a 20% conversion lift.",
+    description:
+      "A practical WooCommerce-to-Shopify migration playbook: auditing URLs, migrating product and customer data, building the 301 redirect map that protects SEO, and the conversion work behind a real 20% lift.",
+    date: "Jul 10, 2026",
+    dateISO: "2026-07-10",
+    readingTime: "10 min",
+    tag: "Migration",
+    keywords: [
+      "WooCommerce to Shopify migration",
+      "Shopify migration SEO",
+      "301 redirects Shopify",
+      "WooCommerce Shopify redirects",
+      "Shopify replatform",
+      "Matrixify",
+      "ecommerce migration",
+      "Shopify URL structure",
+    ],
+    href: "/blog/woocommerce-to-shopify-migration-seo-conversions",
+    image: "/images/blog/woo-to-shopify-migration.png",
+    imageAlt:
+      "WooCommerce to Shopify migration — how conversion rate increased 20% without losing rankings, showing the audit, migrate, redirect and launch steps",
+  },
+  {
+    slug: "shopify-flow-block-fraudulent-orders",
+    title: "Blocking fraudulent orders with Shopify Flow",
+    excerpt:
+      "How I built a native Shopify Flow automation to catch high-risk and mismatched-address orders the moment they're placed — tag, hold fulfillment and review before anything ships.",
+    description:
+      "A real Shopify Flow recipe for fraud prevention: the Order created trigger, risk and address-mismatch conditions, and tag / hold-fulfillment / internal-email actions — with the Liquid templates and the reasons not to auto-cancel.",
+    date: "Jul 7, 2026",
+    dateISO: "2026-07-07",
+    readingTime: "7 min",
+    tag: "Automation",
+    keywords: [
+      "Shopify Flow",
+      "Shopify fraud prevention",
+      "block fraudulent orders Shopify",
+      "Shopify Flow automation",
+      "Shopify chargebacks",
+      "Shopify order risk",
+      "hold fulfillment Shopify",
+      "Shopify Flow Liquid",
+    ],
+    href: "/blog/shopify-flow-block-fraudulent-orders",
+    image: "/images/blog/shopify-flow.png",
+    imageAlt:
+      "Blocking fraudulent orders with Shopify Flow — a workflow moving from order created to evaluate risk to tag and hold fulfillment",
+  },
+  {
     slug: "shopify-product-template-variant-tabs-accordion",
     title:
       "Building a modern Shopify product template with variant tabs and a specification accordion",

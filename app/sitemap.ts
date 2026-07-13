@@ -5,16 +5,16 @@ const SITE_URL = "https://tariqmanon.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  const sections = ["", "#work", "#services", "#about", "#blog", "#contact"];
 
-  const sectionEntries: MetadataRoute.Sitemap = sections.map((s) => ({
-    url: `${SITE_URL}/${s}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: s === "" ? 1 : 0.7,
-  }));
-
-  const blogIndexEntry: MetadataRoute.Sitemap = [
+  // Only real, crawlable URLs belong in a sitemap — fragment links (/#work) are
+  // ignored by search engines and just duplicate the homepage entry.
+  const staticEntries: MetadataRoute.Sitemap = [
+    {
+      url: SITE_URL,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 1,
+    },
     {
       url: `${SITE_URL}/blog`,
       lastModified: now,
@@ -30,5 +30,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...sectionEntries, ...blogIndexEntry, ...postEntries];
+  return [...staticEntries, ...postEntries];
 }

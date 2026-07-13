@@ -11,6 +11,8 @@ import { Button } from "@/components/ui/button";
 
 import { posts, site } from "@/lib/data";
 import { postContent } from "@/lib/posts";
+import { JsonLd } from "@/components/json-ld";
+import { blogPostGraph } from "@/lib/schema";
 
 type Params = { slug: string };
 
@@ -59,32 +61,6 @@ export default function BlogPostPage({ params }: { params: Params }) {
   const Content = postContent[post.slug];
   if (!Content) notFound();
 
-  const url = `${site.url}${post.href}`;
-  const image = post.image ? `${site.url}${post.image}` : undefined;
-
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: post.title,
-    description: post.description,
-    keywords: post.keywords.join(", "),
-    inLanguage: "en-GB",
-    datePublished: post.dateISO,
-    dateModified: post.dateISO,
-    author: {
-      "@type": "Person",
-      name: site.name,
-      url: site.url,
-    },
-    publisher: {
-      "@type": "Person",
-      name: site.name,
-      url: site.url,
-    },
-    mainEntityOfPage: { "@type": "WebPage", "@id": url },
-    ...(image ? { image: [image] } : {}),
-  };
-
   const otherPosts = posts.filter((p) => p.slug !== post.slug);
 
   return (
@@ -92,10 +68,7 @@ export default function BlogPostPage({ params }: { params: Params }) {
       <Nav />
       <main className="relative pt-24 md:pt-28">
         {/* JSON-LD structured data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <JsonLd data={blogPostGraph(post)} />
 
         <article className="container-x">
           {/* Breadcrumb / back */}

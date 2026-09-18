@@ -18,7 +18,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://tariqmanon.com"),
+  metadataBase: new URL("https://www.tariqmanon.com"),
   title: {
     default: "Tariq Manon | Senior Web Developer & Software Engineer",
     template: "%s | Tariq Manon",
@@ -35,12 +35,12 @@ export const metadata: Metadata = {
     "Dhaka",
     "Bangladesh",
   ],
-  authors: [{ name: "Tariq Manon", url: "https://tariqmanon.com" }],
+  authors: [{ name: "Tariq Manon", url: "https://www.tariqmanon.com" }],
   creator: "Tariq Manon",
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: "https://tariqmanon.com",
+    url: "https://www.tariqmanon.com",
     siteName: "Tariq Manon",
     title: "Tariq Manon | Senior Web Developer & Software Engineer",
     description:

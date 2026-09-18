@@ -5,7 +5,7 @@ export const site = {
   location: "Dhaka, Bangladesh",
   email: "tmanon007@gmail.com",
   phone: "+880 168 580 9188",
-  url: "https://tariqmanon.com",
+  url: "https://www.tariqmanon.com",
   social: {
     linkedin: "https://linkedin.com/in/tariqmanon",
     github: "https://github.com/tariqmanon",

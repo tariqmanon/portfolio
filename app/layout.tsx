@@ -37,6 +37,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Tariq Manon", url: "https://www.tariqmanon.com" }],
   creator: "Tariq Manon",
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "en_GB",

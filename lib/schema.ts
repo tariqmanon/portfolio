@@ -1,4 +1,4 @@
-import { site, type Post } from "@/lib/data";
+import { site, services, type Post } from "@/lib/data";
 
 const sameAs = [site.social.linkedin, site.social.github];
 
@@ -48,6 +48,39 @@ function websiteNode() {
   };
 }
 
+// The prices here must keep matching the "from" figures rendered in the
+// services section — agents quote structured prices verbatim. Anything not
+// quoted as a number on the page ("On request") ships without an Offer.
+function serviceNodes() {
+  return services.map((service) => {
+    const minPrice = Number(service.from.replace(/[^0-9.]/g, ""));
+    const hasPrice = Number.isFinite(minPrice) && minPrice > 0;
+
+    return {
+      "@type": "Service",
+      name: service.name,
+      serviceType: service.name,
+      description: service.description,
+      provider: { "@id": personId },
+      areaServed: ["United Kingdom", "United States", "Europe"],
+      ...(hasPrice
+        ? {
+            offers: {
+              "@type": "Offer",
+              url: `${site.url}/#services`,
+              priceSpecification: {
+                "@type": "PriceSpecification",
+                minPrice,
+                priceCurrency: "USD",
+                valueAddedTaxIncluded: false,
+              },
+            },
+          }
+        : {}),
+    };
+  });
+}
+
 function blogPostingNode(post: Post) {
   const url = `${site.url}${post.href}`;
   const image = post.image ? `${site.url}${post.image}` : undefined;
@@ -85,7 +118,7 @@ function breadcrumbNode(items: { name: string; url: string }[]) {
 export function homeGraph() {
   return {
     "@context": "https://schema.org",
-    "@graph": [personNode(), websiteNode()],
+    "@graph": [personNode(), websiteNode(), ...serviceNodes()],
   };
 }
 

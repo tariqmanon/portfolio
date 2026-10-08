@@ -1,58 +1,16 @@
 "use client";
 
-import * as React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
-import { toast } from "sonner";
 import { SectionHeading } from "@/components/section-heading";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 import { site } from "@/lib/data";
 
 const ease = [0.4, 0, 0.2, 1] as const;
 
 export function Contact() {
-  const [submitting, setSubmitting] = React.useState(false);
-
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setSubmitting(true);
-
-    const form = e.currentTarget;
-    const data = new FormData(form);
-    const payload = {
-      name: String(data.get("name") || "").trim(),
-      email: String(data.get("email") || "").trim(),
-      company: String(data.get("company") || "").trim(),
-      message: String(data.get("message") || "").trim(),
-      website: String(data.get("website") || ""),
-    };
-
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      const json = await res.json().catch(() => ({}));
-      if (!res.ok) throw new Error(json?.error || "Something went wrong. Please try again.");
-      toast.success("Message sent.", {
-        description: "I'll get back to you within a working day.",
-      });
-      form.reset();
-    } catch (err) {
-      toast.error("Couldn't send.", {
-        description: err instanceof Error ? err.message : "Please email me directly.",
-      });
-    } finally {
-      setSubmitting(false);
-    }
-  }
-
   return (
     <section id="contact" className="section">
       <div className="container-x grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
@@ -60,30 +18,8 @@ export function Contact() {
           <SectionHeading
             eyebrow="Contact"
             title="Have a project in mind? Let&apos;s talk."
-            description="The fastest way to reach me is the form or email. I usually reply within a working day."
+            description="Email is the fastest way to reach me, or book a call if you'd rather talk it through. I usually reply within a working day."
           />
-
-          <ul className="mt-8 flex flex-col gap-4 text-sm md:mt-10">
-            <li className="flex items-center gap-3 text-text/90">
-              <Mail className="h-4 w-4 text-accent" />
-              <Link href={`mailto:${site.email}`} className="transition-colors duration-hover ease-brand hover:text-accent">
-                {site.email}
-              </Link>
-            </li>
-            <li className="flex items-center gap-3 text-text/90">
-              <Phone className="h-4 w-4 text-accent" />
-              <Link
-                href={`tel:${site.phone.replace(/\s+/g, "")}`}
-                className="transition-colors duration-hover ease-brand hover:text-accent"
-              >
-                {site.phone}
-              </Link>
-            </li>
-            <li className="flex items-center gap-3 text-text/90">
-              <MapPin className="h-4 w-4 text-accent" />
-              <span>{site.location}</span>
-            </li>
-          </ul>
 
           <div className="mt-8 flex items-center gap-3">
             <Button asChild variant="outline" size="icon" aria-label="LinkedIn">
@@ -107,23 +43,38 @@ export function Contact() {
           className="lg:col-span-7"
         >
           <Card className="p-6 md:p-8">
-            <form onSubmit={onSubmit} className="flex flex-col gap-5" noValidate>
-              <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-                <Field id="name" label="Name" required autoComplete="name" />
-                <Field id="email" label="Email" type="email" required autoComplete="email" />
-              </div>
-              <Field id="company" label="Company (optional)" autoComplete="organization" />
-              <FieldTextarea id="message" label="Project details" required rows={6} />
+            <ul className="flex flex-col gap-6">
+              <ContactRow icon={<Mail className="h-4 w-4 text-accent" />} label="Email">
+                <Link
+                  href={`mailto:${site.email}`}
+                  className="transition-colors duration-hover ease-brand hover:text-accent"
+                >
+                  {site.email}
+                </Link>
+              </ContactRow>
 
-              <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
+              <ContactRow icon={<Phone className="h-4 w-4 text-accent" />} label="Phone">
+                <Link
+                  href={`tel:${site.phone.replace(/\s+/g, "")}`}
+                  className="transition-colors duration-hover ease-brand hover:text-accent"
+                >
+                  {site.phone}
+                </Link>
+              </ContactRow>
 
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <Button type="submit" disabled={submitting}>
-                  {submitting ? "Sending…" : "Send Message"}
+              <ContactRow icon={<MapPin className="h-4 w-4 text-accent" />} label="Based in">
+                <span>{site.location}</span>
+              </ContactRow>
+            </ul>
+
+            <div className="mt-8 flex flex-wrap items-center gap-4 pt-2">
+              <Button asChild>
+                <Link href={site.cta.href} target="_blank" rel="noopener noreferrer">
+                  {site.cta.label}
                   <ArrowRight className="h-3.5 w-3.5" />
-                </Button>
-              </div>
-            </form>
+                </Link>
+              </Button>
+            </div>
           </Card>
         </motion.div>
       </div>
@@ -131,42 +82,22 @@ export function Contact() {
   );
 }
 
-function Field({
-  id,
+function ContactRow({
+  icon,
   label,
-  type = "text",
-  required,
-  autoComplete,
+  children,
 }: {
-  id: string;
+  icon: React.ReactNode;
   label: string;
-  type?: string;
-  required?: boolean;
-  autoComplete?: string;
+  children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col gap-2">
-      <Label htmlFor={id}>{label}</Label>
-      <Input id={id} name={id} type={type} required={required} autoComplete={autoComplete} />
-    </div>
-  );
-}
-
-function FieldTextarea({
-  id,
-  label,
-  rows = 4,
-  required,
-}: {
-  id: string;
-  label: string;
-  rows?: number;
-  required?: boolean;
-}) {
-  return (
-    <div className="flex flex-col gap-2">
-      <Label htmlFor={id}>{label}</Label>
-      <Textarea id={id} name={id} rows={rows} required={required} />
-    </div>
+    <li className="flex flex-col gap-2">
+      <span className="font-mono text-[11px] uppercase tracking-widest text-subtle">{label}</span>
+      <span className="flex items-center gap-3 text-base text-text/90 md:text-lg">
+        {icon}
+        {children}
+      </span>
+    </li>
   );
 }

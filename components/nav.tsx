@@ -7,7 +7,8 @@ import { Menu, X } from "lucide-react";
 import { Monogram } from "./monogram";
 import { ThemeToggle } from "./theme-toggle";
 import { Button } from "@/components/ui/button";
-import { nav, site } from "@/lib/data";
+import { BookACallButton } from "@/components/cal";
+import { nav } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 export function Nav() {
@@ -52,11 +53,7 @@ export function Nav() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Button asChild className="hidden md:inline-flex">
-            <Link href={site.cta.href} target="_blank" rel="noopener noreferrer">
-              {site.cta.label}
-            </Link>
-          </Button>
+          <BookACallButton className="hidden md:inline-flex" />
           <ThemeToggle />
           <Button
             type="button"
@@ -88,16 +85,7 @@ export function Nav() {
                 {item.label}
               </Link>
             ))}
-            <Button asChild className="mt-2 w-fit">
-              <Link
-                href={site.cta.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setOpen(false)}
-              >
-                {site.cta.label}
-              </Link>
-            </Button>
+            <BookACallButton className="mt-2 w-fit" onNavigate={() => setOpen(false)} />
           </div>
         </div>
       )}

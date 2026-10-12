@@ -8,6 +8,7 @@ import { Nav } from "@/components/nav";
 import { Footer } from "@/components/sections/footer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { BookACallButton } from "@/components/cal";
 
 import { posts, site } from "@/lib/data";
 import { postContent } from "@/lib/posts";
@@ -161,11 +162,7 @@ export default function BlogPostPage({ params }: { params: Params }) {
               own store, book a call and we&apos;ll talk through it.
             </p>
             <div className="mt-5 flex flex-wrap items-center gap-3">
-              <Button asChild>
-                <Link href={site.cta.href} target="_blank" rel="noopener noreferrer">
-                  {site.cta.label}
-                </Link>
-              </Button>
+              <BookACallButton />
               <Button asChild variant="outline">
                 <Link href="/#work">See recent work</Link>
               </Button>

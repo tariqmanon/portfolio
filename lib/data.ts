@@ -12,7 +12,15 @@ export const site = {
   },
   cta: {
     label: "Book a Call",
-    href: "https://calendly.com/webpexbd/web-design-workshop?month=2026-04",
+    // The Cal.com embed upgrades these links into a modal on click. `href`
+    // stays a real booking URL so crawlers, llms.txt and no-JS visitors all
+    // still land somewhere useful.
+    href: "https://cal.com/tariq-webpex/tariq-webpex-project",
+    cal: {
+      namespace: "tariq-webpex-project",
+      link: "tariq-webpex/tariq-webpex-project",
+      origin: "https://app.cal.com",
+    },
   },
   resume: {
     label: "Download CV",

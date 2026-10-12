@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { CalInline } from "@/components/cal";
 import { site } from "@/lib/data";
 
 const ease = [0.4, 0, 0.2, 1] as const;
@@ -18,8 +19,32 @@ export function Contact() {
           <SectionHeading
             eyebrow="Contact"
             title="Have a project in mind? Let&apos;s talk."
-            description="Email is the fastest way to reach me, or book a call if you'd rather talk it through. I usually reply within a working day."
+            description="Pick a time that suits you and we'll talk it through. If you'd rather write first, email me — I usually reply within a working day."
           />
+
+          <ul className="mt-8 flex flex-col gap-6 md:mt-10">
+            <ContactRow icon={<Mail className="h-4 w-4 text-accent" />} label="Email">
+              <Link
+                href={`mailto:${site.email}`}
+                className="transition-colors duration-hover ease-brand hover:text-accent"
+              >
+                {site.email}
+              </Link>
+            </ContactRow>
+
+            <ContactRow icon={<Phone className="h-4 w-4 text-accent" />} label="Phone">
+              <Link
+                href={`tel:${site.phone.replace(/\s+/g, "")}`}
+                className="transition-colors duration-hover ease-brand hover:text-accent"
+              >
+                {site.phone}
+              </Link>
+            </ContactRow>
+
+            <ContactRow icon={<MapPin className="h-4 w-4 text-accent" />} label="Based in">
+              <span>{site.location}</span>
+            </ContactRow>
+          </ul>
 
           <div className="mt-8 flex items-center gap-3">
             <Button asChild variant="outline" size="icon" aria-label="LinkedIn">
@@ -42,39 +67,8 @@ export function Contact() {
           transition={{ duration: 0.6, ease }}
           className="lg:col-span-7"
         >
-          <Card className="p-6 md:p-8">
-            <ul className="flex flex-col gap-6">
-              <ContactRow icon={<Mail className="h-4 w-4 text-accent" />} label="Email">
-                <Link
-                  href={`mailto:${site.email}`}
-                  className="transition-colors duration-hover ease-brand hover:text-accent"
-                >
-                  {site.email}
-                </Link>
-              </ContactRow>
-
-              <ContactRow icon={<Phone className="h-4 w-4 text-accent" />} label="Phone">
-                <Link
-                  href={`tel:${site.phone.replace(/\s+/g, "")}`}
-                  className="transition-colors duration-hover ease-brand hover:text-accent"
-                >
-                  {site.phone}
-                </Link>
-              </ContactRow>
-
-              <ContactRow icon={<MapPin className="h-4 w-4 text-accent" />} label="Based in">
-                <span>{site.location}</span>
-              </ContactRow>
-            </ul>
-
-            <div className="mt-8 flex flex-wrap items-center gap-4 pt-2">
-              <Button asChild>
-                <Link href={site.cta.href} target="_blank" rel="noopener noreferrer">
-                  {site.cta.label}
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
-              </Button>
-            </div>
+          <Card className="overflow-hidden p-1 md:p-2">
+            <CalInline className="h-[640px] w-full md:h-[700px]" />
           </Card>
         </motion.div>
       </div>

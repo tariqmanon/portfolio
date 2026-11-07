@@ -59,11 +59,34 @@ export type Project = {
   href?: string;
   repo?: string;
   caseStudy?: string;
+  extraLink?: { label: string; href: string };
   image?: string;
   featured?: boolean;
 };
 
 export const projects: Project[] = [
+  {
+    title: "AutoAgent: Social Media Posts",
+    client: "Web-pex",
+    category: "Shopify App",
+    year: "2026",
+    summary:
+      "Published Shopify app that writes and posts a product promo daily to Facebook, Instagram and Pinterest, plus a weekly SEO blog article to the store's blog. Merchants preview, edit or skip every post before it goes out.",
+    metrics: ["5.0 rating on the Shopify App Store", "Launched September 2026"],
+    stack: ["Shopify App", "Shopify Admin API", "AI content", "Social APIs"],
+    href: "https://apps.shopify.com/autoagent",
+  },
+  {
+    title: "OrderSpec: Custom Order Check",
+    client: "Web-pex",
+    category: "Shopify App",
+    year: "2026",
+    summary:
+      "Published Shopify app that catches personalised orders arriving blank, over-length or off-list, and flags likely typos. Reads fields from Zepto, Infinite Options, Globo, Easify and Zakeke, and produces run sheets, packing slips and CSV exports.",
+    metrics: ["Launched October 2026"],
+    stack: ["Shopify App", "Shopify Admin API", "Order validation"],
+    href: "https://apps.shopify.com/orderspec",
+  },
   {
     title: "StretchSense Gaming",
     client: "StretchSense",
@@ -116,12 +139,18 @@ export const projects: Project[] = [
   },
   {
     title: "Gafbros Limited",
-    category: "Magento (Adobe Commerce)",
-    year: "2025",
+    category: "Magento B2B Trade Portal",
+    year: "2026",
     summary:
-      "Leading the Magento 2 migration from scratch, covering store architecture, theming, and integration with the existing operations stack.",
-    stack: ["Magento 2", "Adobe Commerce", "PHP"],
+      "Built the front end and the Merlin ERP integration on this Magento 2 trade portal, one of a team of three. Pricing mirrors locally over SOAP so pages never wait on the ERP, and it shipped with customer self-service, a tablet portal for reps on the road and a B2C storefront, kickoff to soft launch in under six months.",
+    metrics: [
+      "Price refresh from 9.3 hours to about two minutes",
+      "Zero price differences across 29,652 prices checked",
+      "Create Order page from seconds to under 0.1s",
+    ],
+    stack: ["Magento 2.4.8", "PHP", "MySQL", "Merlin ERP", "SOAP API"],
     href: "https://www.gafbros.co.uk",
+    extraLink: { label: "Trade Portal", href: "https://portal.gafbros.co.uk/" },
     image: "/images/projects/gafbros.png",
     featured: true,
   },
@@ -182,28 +211,24 @@ export const projects: Project[] = [
 export const services = [
   {
     name: "Shopify Development",
-    from: "$3,500",
     description:
       "Theme builds, migrations from WooCommerce or Magento, custom checkout extensions and Shopify Flow automation.",
     bullets: ["Theme + storefront", "Migrations & data sync", "Flow automations", "Klaviyo + 3rd-party APIs"],
   },
   {
     name: "WordPress / WooCommerce",
-    from: "$2,000",
     description:
       "Custom WordPress and WooCommerce builds with bespoke checkouts, plugin work and performance tuning.",
     bullets: ["Custom WooCommerce", "Plugin development", "PageSpeed 90+", "REST API integrations"],
   },
   {
     name: "Next.js / React",
-    from: "$3,000",
     description:
       "Marketing sites, SaaS frontends and headless storefronts built on Next.js with CI/CD on Vercel.",
     bullets: ["App Router + TS", "Vercel + GitHub Actions", "Headless commerce", "Animations & interaction"],
   },
   {
     name: "Magento (Adobe Commerce)",
-    from: "On request",
     description:
       "Adobe Commerce builds and migrations covering store architecture, theming and integration with operations.",
     bullets: ["Magento 2 theming", "Migrations", "Module work", "B2B / multi-store"],
@@ -251,7 +276,7 @@ export const experience: Role[] = [
       "Developed Catered by Clink (cateredbyclink.org) WooCommerce site from scratch with a fully custom checkout.",
       "Integrated 8+ third-party APIs for payments, shipping, CRM, Klaviyo and One Click Upsell, cutting onboarding time by ~30%.",
       "Delivered React and Vite frontend work for BlueFrog (JW Player) and the Tuliptech site; built CareApps and Empathika on Framer CMS.",
-      "Leading Magento (Adobe Commerce) migration for Gafbros from scratch; set up CI/CD via GitHub Actions and Vercel for VelaOps (Next.js), cutting deploy time by ~50%.",
+      "Built the front end and Merlin ERP integration for the Gafbros Magento 2 trade portal, soft-launched Oct 2026; set up CI/CD via GitHub Actions and Vercel for VelaOps (Next.js), cutting deploy time by ~50%.",
     ],
   },
   {

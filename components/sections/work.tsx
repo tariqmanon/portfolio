@@ -122,7 +122,7 @@ export function Work() {
                     ))}
                   </div>
 
-                  {(p.caseStudy || p.repo) && (
+                  {(p.caseStudy || p.repo || p.extraLink) && (
                     <div className="hairline-t flex flex-wrap items-center gap-x-6 gap-y-2 pt-4">
                       {p.caseStudy && (
                         <Link
@@ -143,6 +143,17 @@ export function Work() {
                           className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-accent transition-opacity duration-hover ease-brand hover:opacity-80"
                         >
                           View Code
+                          <ArrowUpRight className="h-3.5 w-3.5" />
+                        </Link>
+                      )}
+                      {p.extraLink && (
+                        <Link
+                          href={p.extraLink.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-accent transition-opacity duration-hover ease-brand hover:opacity-80"
+                        >
+                          {p.extraLink.label}
                           <ArrowUpRight className="h-3.5 w-3.5" />
                         </Link>
                       )}

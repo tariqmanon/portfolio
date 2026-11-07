@@ -6,11 +6,7 @@ export const dynamic = "force-static";
 
 function servicesSection() {
   return services
-    .map((s) => {
-      // "$3,500" reads as "From $3,500"; "On request" has to stand on its own.
-      const price = /\d/.test(s.from) ? `From ${s.from}.` : `${s.from}.`;
-      return `- [${s.name}](${site.url}/#services): ${s.description} ${price}`;
-    })
+    .map((s) => `- [${s.name}](${site.url}/#services): ${s.description}`)
     .join("\n");
 }
 

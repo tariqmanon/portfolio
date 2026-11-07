@@ -48,37 +48,17 @@ function websiteNode() {
   };
 }
 
-// The prices here must keep matching the "from" figures rendered in the
-// services section — agents quote structured prices verbatim. Anything not
-// quoted as a number on the page ("On request") ships without an Offer.
+// No Offer node: prices are no longer shown on the page, and structured
+// prices must match what a human sees.
 function serviceNodes() {
-  return services.map((service) => {
-    const minPrice = Number(service.from.replace(/[^0-9.]/g, ""));
-    const hasPrice = Number.isFinite(minPrice) && minPrice > 0;
-
-    return {
-      "@type": "Service",
-      name: service.name,
-      serviceType: service.name,
-      description: service.description,
-      provider: { "@id": personId },
-      areaServed: ["United Kingdom", "United States", "Europe"],
-      ...(hasPrice
-        ? {
-            offers: {
-              "@type": "Offer",
-              url: `${site.url}/#services`,
-              priceSpecification: {
-                "@type": "PriceSpecification",
-                minPrice,
-                priceCurrency: "USD",
-                valueAddedTaxIncluded: false,
-              },
-            },
-          }
-        : {}),
-    };
-  });
+  return services.map((service) => ({
+    "@type": "Service",
+    name: service.name,
+    serviceType: service.name,
+    description: service.description,
+    provider: { "@id": personId },
+    areaServed: ["United Kingdom", "United States", "Europe"],
+  }));
 }
 
 function blogPostingNode(post: Post) {

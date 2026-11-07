@@ -28,14 +28,9 @@ export function Services() {
               transition={{ duration: 0.6, ease, delay: i * 0.04 }}
             >
               <Card className="flex flex-col gap-5 p-7 h-full hover:[border-color:rgb(var(--accent)/0.5)]">
-                <div className="flex items-start justify-between gap-4">
-                  <h3 className="text-xl font-semibold tracking-tight md:text-2xl">
-                    {s.name}
-                  </h3>
-                  <span className="font-mono text-[12px] uppercase tracking-widest text-accent">
-                    from {s.from}
-                  </span>
-                </div>
+                <h3 className="text-xl font-semibold tracking-tight md:text-2xl">
+                  {s.name}
+                </h3>
                 <p className="text-pretty text-sm leading-relaxed text-subtle md:text-base">
                   {s.description}
                 </p>

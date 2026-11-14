@@ -126,14 +126,14 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    title: "VelaOps",
+    title: "VelaCrew",
     category: "SaaS / Warehouse Automation",
     year: "2024",
     summary:
-      "Set up CI/CD via GitHub Actions and Vercel for the VelaOps Next.js platform, cutting deploy time by ~50% and stabilising release cadence.",
+      "Set up CI/CD via GitHub Actions and Vercel for the VelaCrew Next.js platform, cutting deploy time by ~50% and stabilising release cadence.",
     metrics: ["Deploy time cut by ~50%"],
     stack: ["Next.js", "Vercel", "GitHub Actions"],
-    href: "https://velaops.ai",
+    href: "https://velacrew.ai",
     image: "/images/projects/velaops.png",
     featured: true,
   },
@@ -276,7 +276,7 @@ export const experience: Role[] = [
       "Developed Catered by Clink (cateredbyclink.org) WooCommerce site from scratch with a fully custom checkout.",
       "Integrated 8+ third-party APIs for payments, shipping, CRM, Klaviyo and One Click Upsell, cutting onboarding time by ~30%.",
       "Delivered React and Vite frontend work for BlueFrog (JW Player) and the Tuliptech site; built CareApps and Empathika on Framer CMS.",
-      "Built the front end and Merlin ERP integration for the Gafbros Magento 2 trade portal, soft-launched Oct 2026; set up CI/CD via GitHub Actions and Vercel for VelaOps (Next.js), cutting deploy time by ~50%.",
+      "Built the front end and Merlin ERP integration for the Gafbros Magento 2 trade portal, soft-launched Oct 2026; set up CI/CD via GitHub Actions and Vercel for VelaCrew (Next.js), cutting deploy time by ~50%.",
     ],
   },
   {
